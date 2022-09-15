@@ -1,15 +1,15 @@
 import Head from 'next/head';
-
+import Header from '../components/Header';
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="">
       <Head>
         <title>Instagram</title>
       </Head>
-
-      <main className="flex">
-        <h1>Instagram 2.0 </h1>
-      </main>
+      {/* Header */}
+      <Header />
+      {/* Feed */}
+      {/* Modal */}
     </div>
   );
 }
