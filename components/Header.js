@@ -9,11 +9,13 @@ import {
 } from '@heroicons/react/outline';
 
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import { HomeIcon } from '@heroicons/react/solid';
 
 function Header() {
   const { data: session } = useSession();
+  const router = useRouter();
 
   console.log(session);
 
@@ -21,14 +23,20 @@ function Header() {
     <div className="shadow-sm border-b bg-white sticky top-0 z-50">
       <div className="flex justify-between bg-white max-w-6xl mx-5 lg:mx-auto">
         {/* Left */}
-        <div className="relative hidden lg:inline-grid w-24 ">
+        <div
+          onClick={() => router.push('/')}
+          className="relative hidden lg:inline-grid w-24"
+        >
           <Image
             layout="fill"
             objectFit="contain"
             src={'https://links.papareact.com/ocw'}
           />
         </div>
-        <div className="relative w-10  lg:hidden flex-shrink-0">
+        <div
+          onClick={() => router.push('/')}
+          className="relative w-10  lg:hidden flex-shrink-0"
+        >
           <Image
             layout="fill"
             objectFit="contain"
@@ -54,7 +62,7 @@ function Header() {
         </div>
         {/* Right */}
         <div className="flex items-center justify-end space-x-4">
-          <HomeIcon className="navBtn" />
+          <HomeIcon onClick={() => router.push('/')} className="navBtn" />
           <MenuIcon className="h-6 md:hidden cursor-pointer" />
           {session ? (
             <>
@@ -71,10 +79,10 @@ function Header() {
 
               <img
                 onClick={signOut}
-                src={session?.user?.image}
+                src={session.user.image}
                 refererpolicy="no-referrer"
                 alt=""
-                className="h-10 rounded-full cursor-pointer"
+                className="h-10 w-10 rounded-full cursor-pointer"
               />
             </>
           ) : (
