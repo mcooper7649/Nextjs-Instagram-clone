@@ -33,7 +33,7 @@ function Header() {
           <Image
             layout="fill"
             objectFit="contain"
-            src={'https://links.papareact.com/ocw'}
+            src={'/instagram-wordmark.png'}
           />
         </div>
         <div
@@ -43,7 +43,7 @@ function Header() {
           <Image
             layout="fill"
             objectFit="contain"
-            src="https://links.papareact.com/jjm"
+            src="/instagram-icon.png"
           />
         </div>
 
